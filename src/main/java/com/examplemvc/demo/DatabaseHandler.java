@@ -9,6 +9,7 @@ import java.util.Map;
 import java.sql.ResultSet;
 
 public class DatabaseHandler extends Config {
+    
     private Connection connection;
 
     // подключение к БД
@@ -88,16 +89,15 @@ public class DatabaseHandler extends Config {
         statement.executeUpdate(query);
     }
 
-    /*
-     * // обновление определеного клиента в БД
-     * public void updateClient(String fio, String email) throws SQLException {
-     * String query =
-     * String.format("UPDATE client SET fio =  '%s') WHERE id_client = ?", fio,
-     * email);
-     * Statement statement = this.getConnection().createStatement();
-     * statement.executeUpdate(query);
-     * }
-     */
+    
+     // обновление определеного клиента в БД
+     public void updateClient(String fio, String email) throws SQLException {
+        String query = String.format("UPDATE client SET fio =  '%s') WHERE id_client = ?",
+        fio, email);
+        Statement statement = this.getConnection().createStatement();
+        statement.executeUpdate(query);
+     }
+    
     
     // изменение фамилии определеного клиента в БД
     public void updateClientFio(int id_client, String fio) throws SQLException {
@@ -154,29 +154,4 @@ public class DatabaseHandler extends Config {
         return id_ms;
     }
     
-    /*
-     * 
-     * // write and read into database
-     * //PreparedStatement statement = ((Connection)
-     * dataSource).prepareStatement(dbHost, ResultSet.TYPE_SCROLL_SENSITIVE,
-     * ResultSet.CONCUR_UPDATABLE);
-     * 
-     * 
-     * 
-     * public String getFIO() throws SQLException, ClassNotFoundException{
-     * String sql = "SELECT query_to_xml('SELECT * FROM rooms', true, false, '')";
-     * 
-     * try (java.sql.Statement Statement = ((Connection)
-     * dataSource).createStatement()) {
-     * ResultSet res = Statement.executeQuery(sql);
-     * 
-     * String tasks = "";
-     * while (res.next()) {
-     * tasks += res.getString(1);
-     * 
-     * }
-     * return tasks;
-     * }
-     * }
-     */
 }

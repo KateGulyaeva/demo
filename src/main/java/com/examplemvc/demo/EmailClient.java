@@ -22,18 +22,11 @@ public class EmailClient {
         message.addRecipient(javax.mail.Message.RecipientType.TO, new InternetAddress("katy.gulyaeva@gmail.com"));
         message.setSubject("hello world");
         message.setText("There is a sample null");
-        /*properties.put("mail.smtp.host", "smtp.gmail.com");
-        properties.put("mail.smtp.port", "587");
-        properties.put("mail.smtp.auth", "true");
-        properties.put("mail.smtp.starttls.enable", "true"); 
-      /**/
-      //properties.put("mail.smtp.STARTTLS.enable", "true"); 
-    
-      // password: "fqbb weuu mxsh seac" LOGIN = "почта"
-      //
-        properties.put("mail.smtp.host", "smtp.gmail.com");
-        properties.put("mail.smtp.port", "465");
-        properties.put("mail.smtp.auth", "true");
+        /*
+        properties.put("mail.smtp.port", "587");      
+        properties.put("mail.smtp.STARTTLS.enable", "true");  
+        password: "fqbb weuu mxsh seac" LOGIN = "почта"
+        */
         properties.put("mail.smtp.socketFactory.port", "465");
         properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
        // properties.put("mail.smtp.debug", "true");

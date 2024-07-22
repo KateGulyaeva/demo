@@ -3,4 +3,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
    
 
+   <beans:beans>
+    <!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+        <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+            <beans:property name="prefix" value="/WEB-INF/views/" />
+            <beans:property name="suffix" value=".jsp" />
+        </beans:bean>
+
+        
+        <beans:bean id="localeResolver"
+            class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+            <beans:property name="defaultLocale" value="en"></beans:property>
+        </beans:bean>
+    <!-- other configuration -->
+    </beans:beans>
+
 </beans>
